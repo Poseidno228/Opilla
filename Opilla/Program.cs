@@ -14,8 +14,8 @@ namespace Opilla
     {
         static void Main(string[] args)
         {
-            KorifeiWineStyle korifei = new KorifeiWineStyle();
-            Console.WriteLine(korifei.GetPriceForLiter());
+            //KorifeiWineStyle classic = new KorifeiWineStyle();
+            //Console.WriteLine(classic.GetStyle());
         }
         public static string GetHtml(Uri uri)
         {

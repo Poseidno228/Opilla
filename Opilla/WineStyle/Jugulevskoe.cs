@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Opilla.WineStyle
 {
-    class Jugulevskoe : Opilla, IParserOneLiter
+    class Jugulevskoe : WineParser, IParserOneLiter
     {
+        public Jugulevskoe()
+        {
+        }
+
         public Jugulevskoe(string name, DateTime time, string source, int volume, string manufacturer, string bottle, int shelfLife) : base(name, time, source, volume, manufacturer, bottle, shelfLife)
         {
             if (volume == 0.5)
@@ -16,31 +20,28 @@ namespace Opilla.WineStyle
             base.Degree = this.GetDegree();
             base.Style = this.GetStyle();
         }
-        public double GetDegree()
+        public override double GetDegree()
         {
-            string s = base.
-                GetHtmlDocument(new Uri("https://winestyle.com.ua/beer/opillia/")).
-                DocumentNode.
-                SelectNodes("")
-                .Count.
-                ToString();
-            Console.WriteLine(s);
-            return 0;
+            base.formID = 81382;
+            return base.GetDegree();
         }
 
-        public double GetPrice()
+        public override double GetPrice()
         {
-            return 0;
+            base.formID = 81382;
+            return base.GetPrice();
         }
 
-        public double GetPriceForLiter()
+        public override double GetPriceForLiter()
         {
-            return 0;
+            base.formID = 81384;
+            return base.GetPriceForLiter();
         }
 
-        public string GetStyle()
+        public override string GetStyle()
         {
-            return "";
+            base.formID = 81384;
+            return base.GetStyle();
         }
     }
 }

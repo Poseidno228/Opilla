@@ -22,19 +22,6 @@ namespace Opilla
             ShelfLife = shelfLife;
         }
 
-        protected Opilla(string name, DateTime time, double degree, string source, decimal volume, string style, string manufacturer, string bottle, int shelfLife)
-        {
-            Name = name;
-            Time = time;
-            Degree = degree;
-            Source = source;
-            Volume = volume;
-            Style = style;
-            Manufacturer = manufacturer;
-            Bottle = bottle;
-            ShelfLife = shelfLife;
-        }
-
         public string Name { get; set; }
         public double Price { get; set; }
         public DateTime Time { get; set; }
@@ -45,7 +32,6 @@ namespace Opilla
         public string Manufacturer { get; set; }
         public string Bottle { get; set; }
         public int ShelfLife { get; set; }
-
         protected HtmlDocument GetHtmlDocument(Uri url)
         {
             string html = Program.GetHtml(url);
