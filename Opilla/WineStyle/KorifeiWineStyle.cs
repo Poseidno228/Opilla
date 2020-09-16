@@ -5,7 +5,7 @@ using HtmlAgilityPack;
 using System.Text.RegularExpressions;
 using Opilla.WineStyle;
 
-namespace Opilla
+namespace Opilla.WineStyle
 {
     class KorifeiWineStyle : WineParser, IParserOneLiter
     {

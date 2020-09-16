@@ -20,7 +20,7 @@ namespace Opilla.WineStyle
                 SelectSingleNode($"//html/body/div[@class='body-wrapper']/div[@class='main-wrapper']/div[@class='container container-fluid']/div[@class='main-content main-content-filters']/div[@class='center-content']/div[@class='items-container ']/form[@data-prodid='{this.formID}']/div[@class='item-block-content']/div[@class='info-container']/ul/li[7]")?.
                 InnerText;
             return Convert.
-                ToDouble((regex.Match(s) == null ? regex2.Match(s) : regex.Match(s)).
+                ToDouble((regex2.Match(s).ToString() == "" ? regex.Match(s) : regex2.Match(s)).
                 ToString().
                 Replace(".", ","));
         }
