@@ -11,14 +11,8 @@ namespace Opilla.WineStyle
         {
         }
 
-        public Jugulevskoe(string name, DateTime time, string source, int volume, string manufacturer, string bottle, int shelfLife) : base(name, time, source, volume, manufacturer, bottle, shelfLife)
+        public Jugulevskoe(string name, double volume, string bottle) : base(name, volume, bottle)
         {
-            if (volume == 0.5)
-                base.Price = GetPrice();
-            else
-                base.Price = GetPriceForLiter();
-            base.Degree = this.GetDegree();
-            base.Style = this.GetStyle();
         }
         public override double GetDegree()
         {

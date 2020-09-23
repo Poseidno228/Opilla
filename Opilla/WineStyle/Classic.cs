@@ -7,14 +7,9 @@ namespace Opilla.WineStyle
     class Classic : WineParser, IParserOneLiter
     {
         public Classic() { }
-        public Classic(string name, DateTime time, string source, int volume, string manufacturer, string bottle, int shelfLife) : base(name, time, source, volume, manufacturer, bottle, shelfLife)
+        public Classic(string name, double volume, string bottle) : base(name, volume, bottle)
         {
-            if (volume == 0.5)
-                base.Price = GetPrice();
-            else
-                base.Price = GetPriceForLiter();
-            base.Style = this.GetStyle();
-            base.Degree = this.GetDegree();
+
         }
         public override double GetDegree()
         {

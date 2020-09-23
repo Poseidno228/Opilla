@@ -1,15 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Opilla.WineStyle
 {
     abstract  class WineParser : Opilla, IParserOneLiter
     {
         public WineParser() { }
-        public WineParser(string name, DateTime time, string source, decimal volume, string manufacturer, string bottle, int shelfLife) : base(name, time, source, volume, manufacturer, bottle, shelfLife)
+        public WineParser(string name, double volume, string bottle) : base(name, volume, bottle)
         {
-
+            Source = "Wine Style";
+            if (volume == 0.5)
+                base.Price = GetPrice();
+            else
+                base.Price = GetPriceForLiter();
+            base.Degree = this.GetDegree();
+            base.Style = this.GetStyle();
         }
         public virtual double GetDegree()
         {

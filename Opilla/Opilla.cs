@@ -11,15 +11,14 @@ namespace Opilla
         {
         }
 
-        protected Opilla(string name, DateTime time, string source, decimal volume, string manufacturer, string bottle, int shelfLife)
+        protected Opilla(string name, double volume, string bottle)
         {
             Name = name;
-            Time = time;
-            Source = source;
+            Time = DateTime.Now;
             Volume = volume;
-            Manufacturer = manufacturer;
+            Manufacturer = "Опілля, Україна";
             Bottle = bottle;
-            ShelfLife = shelfLife;
+            ShelfLife = 30;
         }
 
         public string Name { get; set; }
@@ -27,7 +26,7 @@ namespace Opilla
         public DateTime Time { get; set; }
         public double Degree { get; set; }
         public string Source { get; set; }
-        public decimal Volume { get; set; }
+        public double Volume { get; set; }
         public string Style { get; set; }
         public string Manufacturer { get; set; }
         public string Bottle { get; set; }
