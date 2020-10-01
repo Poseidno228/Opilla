@@ -20,16 +20,15 @@ namespace Opilla
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             IPEndPoint point = new IPEndPoint(IPAddress.Parse("192.168.0.105"), port);
             Console.WriteLine("Start sending");
-            string s = Serialize(GetBeers().Result);
+            string s = Serialize(GetBeers());
             Console.WriteLine(s);
             socket.SendTo(Encoding.UTF8.GetBytes(s), point);
             socket.Shutdown(SocketShutdown.Both);
             socket.Close();
             Console.WriteLine("Finish");
         }
-        static async Task<List<Opilla>> GetBeers()
+        static List<Opilla> GetBeers()
         {
-            return await new Task<List<Opilla>>(()=> {
                 return new List<Opilla>()
             {
                 new Novus<KorifeiWineStyle>("Опілля Корифей",0.5, "Скляна пляшка"),
@@ -42,7 +41,6 @@ namespace Opilla
                 new KorifeiWineStyle("Опілля Корифей", 0.5, "Скляна пляшка"),
                 new KorifeiWineStyle("Опілля Корифей", 1, "Пластикова пляшка")
             };
-            });
         }
         public static string Serialize(List<Opilla> list)
         {
